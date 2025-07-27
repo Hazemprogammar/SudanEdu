@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  
+  /* Academic color scheme */
+  --academic-gray: hsl(215, 16%, 47%);
+  --academic-light: hsl(210, 40%, 98%);
+  --academic-success: hsl(158, 64%, 52%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    direction: rtl;
+  }
+
+  body {
+    @apply font-cairo antialiased bg-background text-foreground;
+    font-family: 'Cairo', 'Tajawal', sans-serif;
+  }
+
+  /* RTL-specific styles */
+  .rtl {
+    direction: rtl;
+    text-align: right;
+  }
+
+  /* Academic color utilities */
+  .text-academic-gray {
+    color: var(--academic-gray);
+  }
+
+  .bg-academic-light {
+    background-color: var(--academic-light);
+  }
+
+  .text-academic-success {
+    color: var(--academic-success);
+  }
+
+  .bg-academic-success {
+    background-color: var(--academic-success);
+  }
+
+  /* Font utilities */
+  .font-cairo {
+    font-family: 'Cairo', sans-serif;
+  }
+
+  .font-tajawal {
+    font-family: 'Tajawal', sans-serif;
+  }
+
+  /* Custom spacing for Arabic text */
+  .space-x-reverse > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+    margin-right: calc(var(--tw-space-x) * var(--tw-space-x-reverse));
+    margin-left: calc(var(--tw-space-x) * calc(1 - var(--tw-space-x-reverse)));
+  }
+
+  /* Primary color variations for buttons and interactive elements */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground transition-colors;
+  }
+  
+  .btn-primary:hover {
+    background-color: hsl(207 90% 44%);
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground transition-colors;
+  }
+  
+  .btn-secondary:hover {
+    background-color: hsl(60 4.8% 85.9%);
+  }
+
+  /* Academic card styling */
+  .academic-card {
+    @apply bg-card border border-border rounded-xl shadow-sm p-6;
+  }
+
+  /* Sidebar styles for RTL */
+  .sidebar-rtl {
+    right: 0;
+    left: auto;
+  }
+
+  /* Main content margin for RTL sidebar */
+  .main-content-rtl {
+    margin-right: 16rem; /* 64 * 0.25rem */
+    margin-left: 0;
+  }
+
+  @media (max-width: 768px) {
+    .main-content-rtl {
+      margin-right: 0;
+    }
+  }
+}
+
+@layer components {
+  /* Custom components for the academic platform */
+  .exam-timer {
+    @apply bg-red-50 border border-red-200 text-red-600 px-4 py-2 rounded-lg;
+  }
+
+  .points-badge {
+    @apply text-academic-success font-semibold px-4 py-2 rounded-lg;
+    background-color: hsl(158 64% 52% / 0.1);
+  }
+
+  .notification-dot {
+    @apply absolute top-0 left-0 h-2 w-2 bg-red-500 rounded-full;
+  }
+
+  .progress-bar {
+    @apply w-full bg-gray-200 rounded-full h-2;
+  }
+
+  .progress-fill {
+    @apply bg-primary h-2 rounded-full transition-all duration-300;
+  }
+
+  /* Navigation active state */
+  .nav-active {
+    @apply text-primary border-r-2 border-primary;
+    background-color: hsl(207 90% 54% / 0.1);
+  }
+
+  .nav-inactive {
+    @apply text-academic-gray hover:bg-gray-50;
+  }
+}
+
+@layer utilities {
+  /* RTL utilities */
+  .text-start {
+    text-align: start;
+  }
+
+  .text-end {
+    text-align: end;
+  }
+
+  .mr-auto {
+    margin-right: auto;
+  }
+
+  .ml-auto {
+    margin-left: auto;
+  }
+
+  /* Academic platform specific utilities */
+  .academic-gradient {
+    background: linear-gradient(135deg, var(--primary) 0%, hsl(207, 90%, 64%) 100%);
+  }
+
+  .exam-question-card {
+    @apply academic-card cursor-pointer transition-colors;
+  }
+  
+  .exam-question-card:hover {
+    border-color: hsl(207 90% 54% / 0.3);
+    background-color: hsl(207 90% 54% / 0.05);
+  }
+
+  .wallet-card {
+    @apply academic-gradient text-white rounded-xl p-8;
+  }
+
+  /* Loading states */
+  .loading-pulse {
+    @apply animate-pulse bg-gray-200 rounded;
+  }
+}
