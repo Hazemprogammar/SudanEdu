@@ -60,14 +60,6 @@ A comprehensive Arabic-first educational platform designed specifically for Suda
 - PostgreSQL database
 - Replit environment (for authentication)
 
-### Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/al-awael-platform.git
-cd al-awael-platform
-```
-
 2. Install dependencies:
 ```bash
 npm install
@@ -75,20 +67,14 @@ npm install
 
 3. Set up environment variables:
 ```bash
-# Database (provided by Neon/Replit)
-DATABASE_URL=your_database_url
-PGHOST=your_host
-PGPORT=your_port
-PGDATABASE=your_database
-PGUSER=your_user
-PGPASSWORD=your_password
+DATABASE_URL
+postgresql://neondb_owner:npg_IHGSmgVOZ31M@ep-noisy-violet-a2g05ruk.eu-central-1.aws.neon.tech/neondb?sslmode=require
 
-# Replit Auth (provided by Replit)
-REPL_ID=your_repl_id
-REPLIT_DOMAINS=your_domain
-SESSION_SECRET=your_session_secret
-ISSUER_URL=https://replit.com/oidc
-```
+PGDATABASE(neondb)
+PGHOST(ep-noisy-violet-a2g05ruk.eu-central-1.aws.neon.tech) 
+PGPORT(5432) 
+PGUSER(neondb_owner) 
+PGPASSWORD(npg_IHGSmgVOZ31M
 
 4. Push database schema:
 ```bash
@@ -188,7 +174,6 @@ The platform uses a comprehensive PostgreSQL schema with the following main tabl
 - **Seed Data**: Development data seeding scripts
 
 ### Deployment
-- **Replit Deployment**: Optimized for Replit platform
 - **Environment Management**: Secure configuration handling
 - **Performance Optimization**: Build optimizations for production
 
@@ -216,16 +201,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🤝 Support
 
 For support and questions:
-- Email: support@alawael.edu.sd
-- GitHub Issues: [Create an issue](https://github.com/yourusername/al-awael-platform/issues)
-- Documentation: [Wiki](https://github.com/yourusername/al-awael-platform/wiki)
+- Email: hazembabiker2004@gmail.com
 
 ## 🙏 Acknowledgments
 
 - Built for Sudanese students and educators
 - Designed with Arabic-first principles
-- Powered by modern web technologies
-- Community-driven development
+- Powered by Hazem Babiker 
 
 ---
 
