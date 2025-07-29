@@ -53,11 +53,5 @@ coverage/
 tmp/
 temp/
 
-# Replit specific
-.replit
-replit.nix
-.breakpoints
-.upm
-
 # Package-lock files (optional, team preference)
 package-lock.json
